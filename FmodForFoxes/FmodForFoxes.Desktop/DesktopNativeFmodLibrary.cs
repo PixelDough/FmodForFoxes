@@ -35,6 +35,10 @@ namespace FmodForFoxes
 			{
 				name = loggingEnabled ? $"{libName}L.dll" : $"{libName}.dll";
 			}
+			else if (OperatingSystem.IsMacOS() || OperatingSystem.IsMacCatalyst())
+			{
+				name = loggingEnabled ? $"{libName}L.dylib" : $"{libName}.dylib";
+			}
 			else if (OperatingSystem.IsLinux() || OperatingSystem.IsAndroid())
 			{
 				name = loggingEnabled ? $"lib{libName}L.so" : $"lib{libName}.so";
